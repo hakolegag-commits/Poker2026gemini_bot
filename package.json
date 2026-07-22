@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "node src/index.js"
+    "node index.js"
   },
   "dependencies": {
     "telegraf": "^4.16.3"
