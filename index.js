@@ -1,13 +1,20 @@
 const { Telegraf } = require('telegraf');
+const http = require('http');
 
-// Вставь свой токен вместо текста ниже внутри кавычек
 const bot = new Telegraf('8939019076:AAHTYvEE9VFYfl82epZlhEquPij3WzttMa4');
 
-// Обработчик команды /start
 bot.start((ctx) => {
-    ctx.reply('Привет! Добро пожаловать за столы Техасского Холдема! Делай ставки и побеждай.');
+  ctx.reply('Привет! Добро пожаловать за столы Техасского Холдема! Делай ставки и побеждай.');
 });
 
-// Запуск бота
 bot.launch();
 console.log('Покерный бот запущен!');
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Bot is running');
+});
+
+server.listen(process.env.PORT || 3000, () => {
+  console.log('Server is listening...');
+});
